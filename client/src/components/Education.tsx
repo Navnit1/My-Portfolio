@@ -11,7 +11,7 @@ export default function Education() {
             <p className="font-mono text-xs text-[var(--muted)]">{e.period}</p>
             <h3 className="mt-1 font-display text-lg font-medium">{e.degree}</h3>
             <p className="text-sm text-[var(--muted)]">{e.institution}</p>
-            <p className="mt-1 text-sm text-[var(--muted)]">{e.detail}</p>
+           
             <div className="mt-3 flex flex-wrap gap-2">
               {e.coursework.map((c) => (
                 <span
