@@ -50,7 +50,7 @@ export const profile = {
       institution: "IKG Punjab Technical University (PTU)",
       degree: "B.Tech, Information Technology",
       period: "2023 – 2027",
-      detail: "CGPA: 8.14 (6th Sem)",
+      // detail: "CGPA: 8.14 (6th Sem)",
       coursework: [
         "Data Structures",
         "Algorithms",
@@ -212,7 +212,7 @@ export const profile = {
   additional: {
     dsa: "Active LeetCode practice (Striver A2Z)",
     languages: ["English", "Hindi (Native)"],
-    referral: "MIMIT Malout",
+    
   },
 };
 
