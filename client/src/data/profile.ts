@@ -16,7 +16,7 @@ export const profile = {
   phone: "+91 88776 20672",
   location: "Muzaffarpur, Bihar, India",
   links: {
-    linkedin: "https://linkedin.com/in/navnitkumar",
+    linkedin: "https://www.linkedin.com/in/navnit-kumar-110ab8323/",
     github: "https://github.com/Navnit1",
   },
   summary:
@@ -210,8 +210,8 @@ export const profile = {
   achievements: [] as { title: string; detail: string }[], // none listed in resume
 
   additional: {
-    dsa: "Active LeetCode practice (Striver A2Z)",
-    languages: ["English", "Hindi (Native)"],
+    dsa: "Active LeetCode practice ",
+    languages: ["English", "Hindi "],
     
   },
 };

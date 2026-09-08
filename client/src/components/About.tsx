@@ -41,15 +41,9 @@ export default function About() {
         </div>
       </div>
 
-      {profile.personalNote ? (
-        <p className="mt-8 max-w-[62ch] text-[15px] leading-7 text-[var(--muted)]">{profile.personalNote}</p>
-      ) : (
-        <p className="mt-8 max-w-[62ch] rounded-md border border-dashed border-[var(--line)] p-4 text-sm text-[var(--muted)]">
-          A short personal note isn&rsquo;t in the resume yet — add one in{" "}
-          <code className="font-mono text-[var(--teal)]">src/data/profile.ts</code> (
-          <code className="font-mono">personalNote</code>) whenever you&rsquo;re ready.
-        </p>
-      )}
+      {profile.personalNote && (
+  <p className="mt-8 max-w-[62ch] text-[15px] leading-7 text-[var(--muted)]">{profile.personalNote}</p>
+)}
     </Section>
   );
 }
