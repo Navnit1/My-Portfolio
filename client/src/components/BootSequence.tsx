@@ -51,13 +51,14 @@ function useTypewriter(lines: string[], active: boolean, speed = 18) {
 export default function BootSequence({ onDone }: { onDone: () => void }) {
   const reducedMotion = usePrefersReducedMotion();
   const canRender3D = useCanRender3D();
-  const [phase, setPhase] = useState<"greetings" | "name" | "panel" | "done">("greetings");
+  const [phase, setPhase] = useState<"greetings" | "name" | "panel" | "done">(() =>
+    reducedMotion ? "done" : "greetings"
+  );
   const [greetingIndex, setGreetingIndex] = useState(0);
 
   // Skip entirely for reduced-motion users, and let anyone skip manually.
   useEffect(() => {
     if (reducedMotion) {
-      setPhase("done");
       onDone();
     }
   }, [reducedMotion, onDone]);
