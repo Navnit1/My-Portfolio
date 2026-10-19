@@ -50,7 +50,7 @@ export interface ExperienceItem {
 export const PORTFOLIO_CONFIG = {
   name: "Navnit Kumar",
   title: "Software Development Engineer",
-  subtitle: "Full Stack Developer & SDE Aspirant",
+  subtitle: "Full Stack & MERN Developer",
   tagline: "Building scalable web architectures, AI-integrated systems & mastering algorithmic problem solving.",
   email: "navnitf57@gmail.com",
   phone: "+91 88776 20672",
@@ -67,8 +67,8 @@ export const PORTFOLIO_CONFIG = {
 
 export const DEVELOPER_STATS = [
   { label: "Verified Certifications", value: 8, suffix: "+", detail: "Oracle AI, Coursera DSA, Cisco, Edunet" },
-  { label: "DSA Problems Solved", value: 100, suffix: "+", detail: "Striver A2Z DSA sheet on LeetCode" },
-  { label: "Full Stack Projects", value: 2, suffix: "", detail: "End-to-end production web applications" },
+  { label: "Algorithmic Practice", value: "Striver", suffix: " A2Z", detail: "Active problem solving on LeetCode" },
+  { label: "Full Stack Projects", value: 3, suffix: "", detail: "End-to-end production web applications" },
   { label: "Job Simulations & Internships", value: 4, suffix: "", detail: "JPMorgan Chase, Deloitte, AICTE IBM" },
 ];
 
@@ -154,7 +154,42 @@ export const PROJECTS_DATA: ProjectDetail[] = [
       "Successfully launched live web app serving instant resume feedback.",
       "Demonstrated end-to-end full stack ownership: UI design, API integration, deployment, and testing.",
     ],
-    liveUrl: "https://personalprojecr.vercel.app",
+    liveUrl: "https://resumeai-flame-zeta.vercel.app",
+    githubUrl: "https://github.com/Navnit1",
+    image: null,
+  },
+  {
+    slug: "fitverse-clothing-checker",
+    name: "Fitverse — Virtual Clothing Fit Checker",
+    period: "2025",
+    tagline: "E-commerce web application facilitating virtual clothing fit-checking via computer vision API.",
+    category: "Web Application",
+    stack: ["React.js", "Computer Vision API", "JavaScript", "Tailwind CSS"],
+    description:
+      "An e-commerce web app enabling virtual clothing fit-checking via computer vision API, delivering an improved online shopping experience through seamless React.js frontend integration.",
+    overview:
+      "Fitverse solves online clothing size uncertainty by allowing shoppers to check virtual garment fit before purchase using computer vision inference integrated with a modern React.js storefront.",
+    problem:
+      "High return rates in online apparel shopping stem from shoppers' inability to visualize fit and dimensions on their body types.",
+    solution:
+      "Integrated a computer vision sizing API with an intuitive React e-commerce catalog, enabling shoppers to test garments virtually and evaluate fit parameters in real time.",
+    architecture:
+      "React.js frontend with modular component architecture, state management for cart and fit evaluations, and asynchronous API calls to computer vision processing endpoints.",
+    features: [
+      "Virtual clothing fit assessment via computer vision API",
+      "Interactive apparel catalog with size and style filters",
+      "Responsive user interface optimized for mobile and desktop shoppers",
+      "Streamlined checkout flow and sizing recommendation feedback",
+    ],
+    challenges: [
+      "Handling asynchronous image upload and payload formatting for computer vision processing.",
+      "Ensuring responsive layout rendering across mobile and desktop viewport constraints.",
+    ],
+    results: [
+      "Built clean, functional MVP showcasing API-driven apparel fit-checking.",
+      "Open-source repository available on GitHub.",
+    ],
+    liveUrl: "https://github.com/Navnit1",
     githubUrl: "https://github.com/Navnit1",
     image: null,
   },

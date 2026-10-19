@@ -28,7 +28,7 @@ interface HomePageProps {
   onOpenResume?: () => void;
 }
 
-export default function HomePage({ onOpenResume }: HomePageProps) {
+export default function HomePage({ onOpenResume: _onOpenResume }: HomePageProps) {
   return (
     <PageWrapper
       title={`${PORTFOLIO_CONFIG.name} — ${PORTFOLIO_CONFIG.title}`}
@@ -55,7 +55,7 @@ export default function HomePage({ onOpenResume }: HomePageProps) {
                   Software Development Engineer
                 </span>
                 <span className="text-[#8B8178]">/</span>
-                <span className="text-[#625A58]">Full-Stack &amp; MERN</span>
+                <span className="text-[#625A58]">MERN Developer</span>
               </motion.div>
 
               {/* Display Heading: Apple-inspired Hello & Name */}
@@ -114,15 +114,14 @@ export default function HomePage({ onOpenResume }: HomePageProps) {
                 </Link>
 
                 {/* Download CV */}
-                {onOpenResume && (
-                  <button
-                    onClick={onOpenResume}
-                    className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl border border-[#D8CFC3] bg-[#FFFCF7] hover:bg-[#F1ECE3] text-[#211C1D] font-medium text-sm transition shadow-xs"
-                  >
-                    <Download className="w-4 h-4 text-[#7A1F35]" />
-                    <span>Download CV</span>
-                  </button>
-                )}
+                <a
+                  href="/Navnit_Kumar_Resume.pdf"
+                  download="Navnit_Kumar_Resume.pdf"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl border border-[#D8CFC3] bg-[#FFFCF7] hover:bg-[#F1ECE3] text-[#211C1D] font-medium text-sm transition shadow-xs"
+                >
+                  <Download className="w-4 h-4 text-[#7A1F35]" />
+                  <span>Download CV</span>
+                </a>
 
                 {/* Let's Connect */}
                 <Link

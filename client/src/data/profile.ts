@@ -11,7 +11,7 @@ export const profile = {
   name: "Navnit Kumar",
   title: "Software Development Engineer",
   subtitle: "Full Stack Developer",
-  roles: ["Full Stack Developer.", "SDE Aspirant.", "MERN Builder."],
+  roles: ["Full Stack Developer.", "SDE Aspirant.", "MERN Developer."],
   email: "navnitf57@gmail.com",
   phone: "+91 88776 20672",
   location: "Muzaffarpur, Bihar, India",

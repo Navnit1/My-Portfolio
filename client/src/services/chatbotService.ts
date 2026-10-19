@@ -112,7 +112,7 @@ export function getBotResponse(userPrompt: string): {
     query.includes("coding profile")
   ) {
     return {
-      text: `I am an active practitioner on LeetCode (@${PORTFOLIO_CONFIG.leetcodeUsername}), systematically solving problems following the Striver A2Z DSA sheet. I have solved 100+ problems across Arrays, Strings, LinkedLists, Trees, and Dynamic Programming, with a verified Microsoft Coursera DSA certification credential.`,
+      text: `I am an active practitioner on LeetCode (@${PORTFOLIO_CONFIG.leetcodeUsername}), systematically solving algorithmic problems following the Striver A2Z DSA sheet, backed by a verified Microsoft Coursera DSA certification credential. You can view my live LeetCode stats on the Achievements page or directly on my profile.`,
       links: [
         { label: "View LeetCode Profile", url: PORTFOLIO_CONFIG.leetcodeUrl, isExternal: true },
         { label: "View Achievements & Certs", url: "/achievements" },

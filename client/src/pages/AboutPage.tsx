@@ -95,7 +95,7 @@ export default function AboutPage({ onOpenResume }: AboutPageProps) {
                 </div>
                 <div>
                   <span className="text-[#8B8178] block">LeetCode</span>
-                  <span className="text-[#7A1F35] font-semibold">100+ Solved</span>
+                  <span className="text-[#7A1F35] font-semibold">Striver A2Z</span>
                 </div>
               </div>
             </div>

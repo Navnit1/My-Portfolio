@@ -102,6 +102,63 @@ app.get("/api/messages", async (_req, res) => {
   res.json(messages);
 });
 
+// In-memory cache for LeetCode stats
+let leetcodeCache = { timestamp: 0, data: null };
+const LEETCODE_CACHE_TTL = 30 * 60 * 1000; // 30 minutes
+
+app.get("/api/leetcode", async (req, res) => {
+  const username = req.query.username || "navnit121";
+
+  // Check cache
+  if (leetcodeCache.data && Date.now() - leetcodeCache.timestamp < LEETCODE_CACHE_TTL) {
+    return res.json({ ...leetcodeCache.data, source: "server-cache" });
+  }
+
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+    const response = await fetch(`https://alfa-leetcode-api.onrender.com/userProfile/${encodeURIComponent(username)}`, {
+      signal: controller.signal,
+      headers: { "User-Agent": "Portfolio-Backend/1.0" },
+    });
+    clearTimeout(timeout);
+
+    if (!response.ok) {
+      throw new Error(`LeetCode proxy returned ${response.status}`);
+    }
+
+    const raw = await response.json();
+    if (typeof raw.totalSolved !== "number") {
+      throw new Error("Invalid response format from LeetCode proxy");
+    }
+
+    const stats = {
+      username,
+      totalSolved: raw.totalSolved,
+      easySolved: raw.easySolved ?? 0,
+      mediumSolved: raw.mediumSolved ?? 0,
+      hardSolved: raw.hardSolved ?? 0,
+      totalQuestions: raw.totalQuestions ?? 0,
+      easyTotal: raw.totalEasy ?? 0,
+      mediumTotal: raw.totalMedium ?? 0,
+      hardTotal: raw.totalHard ?? 0,
+      ranking: raw.ranking ? (raw.ranking >= 5000000 ? "5,000,000+" : Number(raw.ranking).toLocaleString()) : "Unranked",
+      contributionPoint: raw.contributionPoint ?? 0,
+      source: "live",
+      lastUpdated: new Date().toISOString(),
+    };
+
+    leetcodeCache = { timestamp: Date.now(), data: stats };
+    return res.json(stats);
+  } catch (err) {
+    console.warn("Failed to fetch live LeetCode stats:", err.message);
+    if (leetcodeCache.data) {
+      return res.json({ ...leetcodeCache.data, source: "stale-cache" });
+    }
+    return res.status(503).json({ error: "LeetCode statistics temporarily unavailable." });
+  }
+});
+
 app.get("/api/health", (_req, res) => res.json({ status: "ok" }));
 
 app.listen(PORT, () => {

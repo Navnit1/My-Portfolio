@@ -95,7 +95,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
                   {PORTFOLIO_CONFIG.name}
                 </span>
                 <span className="font-mono text-[9px] sm:text-[10px] text-[#625A58] tracking-widest uppercase font-semibold">
-                  SDE &bull; MERN BUILDER
+                  SDE &bull; MERN DEVELOPER
                 </span>
               </div>
             </Link>

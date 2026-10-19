@@ -244,7 +244,7 @@ export default function SkillsPage() {
             <div className="space-y-2 p-4 rounded-xl bg-[#F8F5EF] border border-[#D8CFC3]">
               <span className="font-mono text-[#7A1F35] font-semibold block">03 / DSA &amp; Algorithms</span>
               <p className="text-[#625A58]">
-                Active problem solving on LeetCode with 100+ problems completed following Striver's A2Z DSA sheet and Microsoft Coursera DSA credential.
+                Active algorithmic problem solving on LeetCode following Striver's A2Z DSA sheet alongside Microsoft Coursera DSA credential.
               </p>
             </div>
           </div>

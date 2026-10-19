@@ -67,13 +67,22 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               </h2>
             </div>
             <div className="flex items-center gap-2">
+              <a
+                href="/Navnit_Kumar_Resume.pdf"
+                download="Navnit_Kumar_Resume.pdf"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#7A1F35] bg-[#7A1F35] hover:bg-[#962D46] text-xs font-mono text-white transition shadow-xs"
+                title="Download PDF"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Download PDF</span>
+              </a>
               <button
                 onClick={handlePrint}
                 className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#D8CFC3] bg-[#FFFCF7] hover:bg-[#F8F5EF] text-xs font-mono text-[#211C1D] transition shadow-xs"
                 title="Print or Save as PDF"
               >
                 <Printer className="w-3.5 h-3.5 text-[#7A1F35]" />
-                <span>Print / Save PDF</span>
+                <span>Print</span>
               </button>
               <button
                 onClick={onClose}
@@ -248,13 +257,14 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               Ready for immediate joining &amp; interviews
             </span>
             <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
-              <button
-                onClick={handlePrint}
+              <a
+                href="/Navnit_Kumar_Resume.pdf"
+                download="Navnit_Kumar_Resume.pdf"
                 className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#7A1F35] hover:bg-[#962D46] text-white font-medium text-xs font-mono transition shadow-xs"
               >
                 <Download className="w-3.5 h-3.5" />
-                <span>Download / Print CV</span>
-              </button>
+                <span>Download Resume (PDF)</span>
+              </a>
             </div>
           </div>
         </motion.div>

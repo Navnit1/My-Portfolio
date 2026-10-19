@@ -25,7 +25,7 @@ const FALLBACK_GITHUB: GitHubStats = {
   publicRepos: 12,
   followers: 5,
   following: 8,
-  bio: "Full Stack Developer | SDE Aspirant | MERN & AI Builder",
+  bio: "Full Stack Developer | SDE Aspirant | MERN Developer",
   avatarUrl: "https://avatars.githubusercontent.com/u/147138038?v=4",
   profileUrl: PORTFOLIO_CONFIG.githubUrl,
   source: "cached",
