@@ -18,6 +18,7 @@ export const profile = {
   links: {
     linkedin: "https://www.linkedin.com/in/navnit-kumar-110ab8323/",
     github: "https://github.com/Navnit1",
+    leetcode: "https://leetcode.com/u/navnit121/",
   },
   summary:
     "Final-year B.Tech (IT) student and Full Stack / SDE aspirant with hands-on experience building and deploying full-stack and AI-integrated web applications using the MERN stack. Completed a JPMorgan Chase & Co. Software Engineering Job Simulation covering REST API design, alongside Deloitte's Technology Job Simulation. Active LeetCode practitioner (Striver A2Z) strengthening DSA fundamentals. Seeking SDE / Full Stack Developer internships and entry-level roles.",

@@ -1,7 +1,9 @@
 // ─────────────────────────────────────────────────────────────
 // GLOBAL NAVBAR
-// Multi-page navigation with active route indicator,
-// scroll responsiveness, mobile drawer, and status beacon
+// Multi-page navigation matching reference design:
+// - Burgundy "NK" monogram & name branding
+// - Pill-style active navigation with solid burgundy highlight
+// - Clean white + burgundy styling across desktop & mobile
 // ─────────────────────────────────────────────────────────────
 
 import { useState, useEffect } from "react";
@@ -43,7 +45,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
     setMobileOpen(false);
   }
 
-  // Track scroll position for compact header
+  // Track scroll position for header shadow
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -69,103 +71,92 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? "py-3 glass-nav bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/20"
-            : "py-5 bg-transparent"
+          scrolled ? "py-2 sm:py-3" : "py-4 sm:py-6"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo / Brand */}
-          <Link
-            to="/"
-            className="group flex items-center gap-2.5 text-slate-100 hover:text-cyan-400 transition"
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className={`flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl sm:rounded-full transition-all duration-300 border border-[#D8CFC3] ${
+              scrolled
+                ? "bg-[#F8F5EF]/95 backdrop-blur-md shadow-md shadow-[#211C1D]/5"
+                : "bg-[#F8F5EF]/90 backdrop-blur-sm shadow-sm"
+            }`}
           >
-            <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-700/80 flex items-center justify-center group-hover:border-cyan-500/50 group-hover:shadow-[0_0_12px_rgba(6,182,212,0.3)] transition-all">
-              <span className="font-display font-bold text-sm text-cyan-400">NK</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-semibold text-sm tracking-tight text-white group-hover:text-cyan-300 transition-colors">
-                {PORTFOLIO_CONFIG.name}
-              </span>
-              <span className="font-mono text-[10px] text-slate-400 tracking-wider uppercase">
-                SDE · MERN Builder
-              </span>
-            </div>
-          </Link>
+            {/* Logo / Brand (matching reference image) */}
+            <Link
+              to="/"
+              className="group flex items-center gap-3 text-[#211C1D] transition"
+            >
+              <div className="w-10 h-10 rounded-xl bg-[#7A1F35] flex items-center justify-center shadow-sm group-hover:bg-[#962D46] transition-colors">
+                <span className="font-display font-black text-sm text-white tracking-wider">NK</span>
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="font-display font-bold text-sm sm:text-base tracking-tight text-[#211C1D] leading-tight">
+                  {PORTFOLIO_CONFIG.name}
+                </span>
+                <span className="font-mono text-[9px] sm:text-[10px] text-[#625A58] tracking-widest uppercase font-semibold">
+                  SDE &bull; MERN BUILDER
+                </span>
+              </div>
+            </Link>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-slate-900/60 border border-slate-800/80 rounded-full px-3 py-1.5 backdrop-blur-md shadow-inner">
-            {NAV_LINKS.map((item) => {
-              const isActive =
-                item.path === "/"
-                  ? location.pathname === "/"
-                  : location.pathname.startsWith(item.path);
+            {/* Desktop Navigation Links */}
+            <nav className="hidden md:flex items-center gap-1">
+              {NAV_LINKS.map((item) => {
+                const isActive =
+                  item.path === "/"
+                    ? location.pathname === "/"
+                    : location.pathname.startsWith(item.path);
 
-              return (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className="relative px-3.5 py-1.5 rounded-full text-xs font-medium transition-colors"
-                >
-                  {isActive && (
-                    <motion.div
-                      layoutId="active-pill"
-                      className="absolute inset-0 rounded-full bg-cyan-500/15 border border-cyan-500/30 shadow-[0_0_10px_rgba(6,182,212,0.2)]"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  <span
-                    className={`relative z-10 transition-colors ${
-                      isActive
-                        ? "text-cyan-300 font-semibold"
-                        : "text-slate-400 hover:text-slate-200"
-                    }`}
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className="relative px-4 py-2 rounded-full text-xs font-medium transition-colors"
                   >
-                    {item.label}
-                  </span>
-                </Link>
-              );
-            })}
-          </nav>
+                    {isActive ? (
+                      <motion.div
+                        layoutId="active-pill"
+                        className="absolute inset-0 rounded-full bg-[#7A1F35] shadow-sm"
+                        transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                      />
+                    ) : null}
+                    <span
+                      className={`relative z-10 transition-colors ${
+                        isActive
+                          ? "text-white font-semibold"
+                          : "text-[#211C1D] hover:text-[#7A1F35]"
+                      }`}
+                    >
+                      {item.label}
+                    </span>
+                  </Link>
+                );
+              })}
+            </nav>
 
-          {/* Right Action Buttons */}
-          <div className="hidden sm:flex items-center gap-3">
-            {onOpenResume && (
+            {/* Right Action: Resume & Mobile Toggle */}
+            <div className="flex items-center gap-2">
+              {onOpenResume && (
+                <button
+                  onClick={onOpenResume}
+                  className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-[#D8CFC3] bg-[#FFFCF7] hover:bg-[#F1ECE3] text-xs font-mono text-[#211C1D] transition shadow-xs"
+                >
+                  <FileText className="w-3.5 h-3.5 text-[#7A1F35]" />
+                  <span>Resume</span>
+                </button>
+              )}
+
+              {/* Mobile Menu Button */}
               <button
-                onClick={onOpenResume}
-                className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-800 bg-slate-900/80 hover:bg-slate-800 text-xs font-mono text-slate-300 hover:text-white transition"
+                onClick={() => setMobileOpen((prev) => !prev)}
+                aria-label={mobileOpen ? "Close menu" : "Open menu"}
+                aria-expanded={mobileOpen}
+                className="w-10 h-10 rounded-xl md:hidden border border-[#D8CFC3] bg-[#FFFCF7] text-[#211C1D] hover:bg-[#F1ECE3] flex items-center justify-center transition shadow-xs"
               >
-                <FileText className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Resume</span>
+                {mobileOpen ? <X className="w-5 h-5 text-[#7A1F35]" /> : <Menu className="w-5 h-5" />}
               </button>
-            )}
-
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-sky-500 hover:from-cyan-400 hover:to-sky-400 text-slate-950 font-semibold text-xs tracking-wide shadow-[0_0_15px_rgba(6,182,212,0.25)] hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-950 animate-ping" />
-              <span>Let's Talk</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          {/* Mobile Menu Toggle Button */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <Link
-              to="/contact"
-              className="px-3 py-1.5 rounded-full bg-cyan-500 text-slate-950 text-xs font-semibold sm:hidden"
-            >
-              Talk
-            </Link>
-            <button
-              onClick={() => setMobileOpen((prev) => !prev)}
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
-              className="w-10 h-10 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition"
-            >
-              {mobileOpen ? <X className="w-5 h-5 text-cyan-400" /> : <Menu className="w-5 h-5" />}
-            </button>
+            </div>
           </div>
         </div>
       </header>
@@ -178,23 +169,23 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-50 lg:hidden flex flex-col bg-slate-950/95 backdrop-blur-xl"
+            className="fixed inset-0 z-50 md:hidden flex flex-col bg-[#F8F5EF]/98 backdrop-blur-xl"
           >
             {/* Top Bar */}
-            <div className="flex items-center justify-between px-6 py-5 border-b border-slate-800">
-              <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center">
-                  <span className="font-display font-bold text-xs text-cyan-400">NK</span>
+            <div className="flex items-center justify-between px-6 py-5 border-b border-[#D8CFC3]">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-[#7A1F35] flex items-center justify-center">
+                  <span className="font-display font-black text-xs text-white">NK</span>
                 </div>
-                <span className="font-display font-semibold text-white text-sm">
+                <span className="font-display font-bold text-[#211C1D] text-base">
                   {PORTFOLIO_CONFIG.name}
                 </span>
               </div>
               <button
                 onClick={() => setMobileOpen(false)}
-                className="w-9 h-9 rounded-lg border border-slate-800 bg-slate-900 text-slate-400 hover:text-white flex items-center justify-center"
+                className="w-9 h-9 rounded-lg border border-[#D8CFC3] bg-[#FFFCF7] text-[#211C1D] flex items-center justify-center shadow-xs"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5 text-[#7A1F35]" />
               </button>
             </div>
 
@@ -210,23 +201,23 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
                   return (
                     <motion.div
                       key={link.path}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -16 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.05, duration: 0.3 }}
+                      transition={{ delay: idx * 0.04, duration: 0.25 }}
                     >
                       <Link
                         to={link.path}
                         onClick={() => setMobileOpen(false)}
                         className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
                           isActive
-                            ? "bg-cyan-500/10 border-cyan-500/40 text-cyan-300 font-semibold"
-                            : "border-transparent text-slate-300 hover:bg-slate-900 hover:text-white"
+                            ? "bg-[#7A1F35] border-[#7A1F35] text-white font-semibold shadow-sm"
+                            : "bg-[#FFFCF7] border-[#D8CFC3] text-[#211C1D] hover:bg-[#F1ECE3]"
                         }`}
                       >
-                        <span className="font-display text-lg">{link.label}</span>
+                        <span className="font-display text-base">{link.label}</span>
                         <ArrowRight
                           className={`w-4 h-4 ${
-                            isActive ? "text-cyan-400" : "text-slate-600"
+                            isActive ? "text-white" : "text-[#8B8178]"
                           }`}
                         />
                       </Link>
@@ -236,26 +227,26 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
               </nav>
 
               {/* Bottom Drawer Actions */}
-              <div className="pt-8 border-t border-slate-800 space-y-4">
+              <div className="pt-6 border-t border-[#D8CFC3] space-y-4">
                 {onOpenResume && (
                   <button
                     onClick={() => {
                       setMobileOpen(false);
                       onOpenResume();
                     }}
-                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border border-slate-700 bg-slate-900 text-sm font-mono text-slate-200 hover:bg-slate-800 transition"
+                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border border-[#D8CFC3] bg-[#FFFCF7] text-sm font-mono text-[#211C1D] hover:bg-[#F1ECE3] transition shadow-xs"
                   >
-                    <FileText className="w-4 h-4 text-cyan-400" />
+                    <FileText className="w-4 h-4 text-[#7A1F35]" />
                     <span>View / Download Resume</span>
                   </button>
                 )}
 
-                <div className="flex items-center justify-center gap-4 text-slate-400 pt-2">
+                <div className="flex items-center justify-center gap-3 text-[#211C1D] pt-2">
                   <a
                     href={PORTFOLIO_CONFIG.githubUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 rounded-full bg-slate-900 border border-slate-800 hover:text-cyan-400 hover:border-cyan-500/50 transition"
+                    className="p-2.5 rounded-xl bg-[#FFFCF7] border border-[#D8CFC3] hover:text-[#7A1F35] transition shadow-xs"
                     aria-label="GitHub"
                   >
                     <GithubIcon className="w-5 h-5" />
@@ -264,7 +255,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
                     href={PORTFOLIO_CONFIG.linkedinUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 rounded-full bg-slate-900 border border-slate-800 hover:text-cyan-400 hover:border-cyan-500/50 transition"
+                    className="p-2.5 rounded-xl bg-[#FFFCF7] border border-[#D8CFC3] hover:text-[#7A1F35] transition shadow-xs"
                     aria-label="LinkedIn"
                   >
                     <LinkedinIcon className="w-5 h-5" />
@@ -273,21 +264,21 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
                     href={PORTFOLIO_CONFIG.leetcodeUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-2.5 rounded-full bg-slate-900 border border-slate-800 hover:text-cyan-400 hover:border-cyan-500/50 transition"
+                    className="p-2.5 rounded-xl bg-[#FFFCF7] border border-[#D8CFC3] hover:text-[#7A1F35] transition shadow-xs"
                     aria-label="LeetCode"
                   >
                     <Code2 className="w-5 h-5" />
                   </a>
                   <a
                     href={`mailto:${PORTFOLIO_CONFIG.email}`}
-                    className="p-2.5 rounded-full bg-slate-900 border border-slate-800 hover:text-cyan-400 hover:border-cyan-500/50 transition"
+                    className="p-2.5 rounded-xl bg-[#FFFCF7] border border-[#D8CFC3] hover:text-[#7A1F35] transition shadow-xs"
                     aria-label="Email"
                   >
                     <Mail className="w-5 h-5" />
                   </a>
                 </div>
 
-                <p className="text-center text-xs font-mono text-slate-500">
+                <p className="text-center text-xs font-mono text-[#625A58]">
                   {PORTFOLIO_CONFIG.availabilityStatus}
                 </p>
               </div>

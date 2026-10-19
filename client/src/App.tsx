@@ -1,10 +1,10 @@
 // ─────────────────────────────────────────────────────────────
 // APPLICATION ENTRYPOINT & MULTI-PAGE ROUTING
-// Real multi-page architecture with smooth transitions,
+// Multi-page architecture with smooth transitions,
 // global navigation, floating chatbot, and resume modal
 // ─────────────────────────────────────────────────────────────
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
@@ -13,7 +13,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import ResumeModal from "./components/ResumeModal";
-import BootSequence from "./components/BootSequence";
 
 // Multi-page routes
 import HomePage from "./pages/HomePage";
@@ -24,8 +23,6 @@ import ProjectsPage from "./pages/ProjectsPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
 import AchievementsPage from "./pages/AchievementsPage";
 import ContactPage from "./pages/ContactPage";
-
-const BOOT_SESSION_KEY = "portfolio-boot-played";
 
 function AnimatedRoutes({ onOpenResume }: { onOpenResume: () => void }) {
   const location = useLocation();
@@ -48,32 +45,11 @@ function AnimatedRoutes({ onOpenResume }: { onOpenResume: () => void }) {
 }
 
 export default function App() {
-  const [bootDone, setBootDone] = useState(() => {
-    try {
-      return sessionStorage.getItem(BOOT_SESSION_KEY) === "1";
-    } catch {
-      return true;
-    }
-  });
-
   const [resumeOpen, setResumeOpen] = useState(false);
-
-  useEffect(() => {
-    if (bootDone) {
-      try {
-        sessionStorage.setItem(BOOT_SESSION_KEY, "1");
-      } catch {
-        // Ignore
-      }
-    }
-  }, [bootDone]);
 
   return (
     <BrowserRouter>
-      {/* Initial boot sequence on first visit only (skippable) */}
-      {!bootDone && <BootSequence onDone={() => setBootDone(true)} />}
-
-      <div className="min-h-screen flex flex-col bg-[#090d16] text-[#f8fafc] selection:bg-cyan-500/30 selection:text-white">
+      <div className="min-h-screen flex flex-col bg-[#F8F5EF] text-[#211C1D] selection:bg-[#7A1F35] selection:text-white">
         {/* Global Navigation Header */}
         <Navbar onOpenResume={() => setResumeOpen(true)} />
 

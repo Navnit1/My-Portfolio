@@ -2,6 +2,7 @@
 // ACHIEVEMENTS & CERTIFICATIONS PAGE
 // Verified technical credentials, real certificate images in lightbox,
 // LeetCode DSA profile breakdown, and industry simulations
+// Styled with White + Burgundy design system
 // ─────────────────────────────────────────────────────────────
 
 import { useState } from "react";
@@ -39,17 +40,17 @@ export default function AchievementsPage() {
       title={`Achievements & Certifications — ${PORTFOLIO_CONFIG.name}`}
       description="Verified technical achievements and certifications of Navnit Kumar: Oracle AI Associate, Coursera DSA, Cisco Python, JPMorgan Chase and Deloitte simulations."
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 space-y-14">
         {/* ────────── Header Banner ────────── */}
         <section className="space-y-4 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F1ECE3] border border-[#D8CFC3] text-xs font-mono text-[#7A1F35] shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-[#7A1F35] animate-pulse" />
             <span>/verified-credentials-and-achievements</span>
           </div>
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-            Verified Certifications & Technical Milestones
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#211C1D] leading-tight">
+            Verified Certifications &amp; Technical Milestones
           </h1>
-          <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
+          <p className="text-[#625A58] text-base sm:text-lg leading-relaxed">
             All credentials presented here are strictly verified through official issuers including Oracle University, Microsoft via Coursera, Cisco Networking Academy, and Forage.
           </p>
         </section>
@@ -57,9 +58,9 @@ export default function AchievementsPage() {
         {/* ────────── Coding Credibility Row ────────── */}
         <section className="space-y-6">
           <div className="flex items-center gap-2">
-            <Target className="w-5 h-5 text-cyan-400" />
-            <h2 className="font-display text-2xl font-bold text-white">
-              Algorithmic & Developer Profiles
+            <Target className="w-5 h-5 text-[#7A1F35]" />
+            <h2 className="font-display text-2xl font-bold text-[#211C1D]">
+              Algorithmic &amp; Developer Profiles
             </h2>
           </div>
 
@@ -71,10 +72,10 @@ export default function AchievementsPage() {
 
         {/* ────────── Filter Tabs ────────── */}
         <section className="space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-800">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-[#D8CFC3]">
             <div className="flex items-center gap-2">
-              <Award className="w-5 h-5 text-amber-400" />
-              <h2 className="font-display text-2xl font-bold text-white">
+              <Award className="w-5 h-5 text-[#7A1F35]" />
+              <h2 className="font-display text-2xl font-bold text-[#211C1D]">
                 Accredited Certifications ({CERTIFICATIONS_DATA.length})
               </h2>
             </div>
@@ -84,10 +85,10 @@ export default function AchievementsPage() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-all whitespace-nowrap ${
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all whitespace-nowrap ${
                     selectedCategory === cat
-                      ? "bg-cyan-500 text-slate-950 font-semibold shadow-md shadow-cyan-950"
-                      : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700"
+                      ? "bg-[#7A1F35] text-white font-semibold shadow-xs"
+                      : "bg-[#FFFCF7] border border-[#D8CFC3] text-[#211C1D] hover:bg-[#F1ECE3]"
                   }`}
                 >
                   {cat}
@@ -105,21 +106,21 @@ export default function AchievementsPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
-                className="group p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 hover:bg-slate-900 transition-all duration-300 shadow-lg flex flex-col justify-between"
+                className="group p-5 rounded-2xl bg-[#FFFCF7] border border-[#D8CFC3] hover:border-[#7A1F35]/50 transition-all duration-300 shadow-warm-card flex flex-col justify-between"
               >
                 <div>
                   {/* Certificate preview thumbnail */}
                   <div
                     onClick={() => setActiveCertModal(cert)}
-                    className="relative aspect-[4/3] rounded-xl bg-slate-950 overflow-hidden border border-slate-800/80 mb-4 cursor-zoom-in group/img"
+                    className="relative aspect-[4/3] rounded-xl bg-[#F8F5EF] overflow-hidden border border-[#D8CFC3] mb-4 cursor-zoom-in group/img"
                   >
                     <img
                       src={cert.file}
                       alt={cert.name}
                       className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 text-cyan-300 border border-cyan-500/30 text-xs font-mono">
+                    <div className="absolute inset-0 bg-[#211C1D]/30 opacity-0 group-hover/img:opacity-100 flex items-center justify-center transition-opacity">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFFCF7] text-[#7A1F35] border border-[#D8CFC3] text-xs font-mono font-semibold shadow-sm">
                         <Eye className="w-3.5 h-3.5" />
                         <span>Inspect</span>
                       </span>
@@ -127,38 +128,38 @@ export default function AchievementsPage() {
                   </div>
 
                   {/* Badge & Org */}
-                  <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-1.5">
-                    <span className="text-amber-400 font-medium truncate max-w-[160px]">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-[#625A58] mb-1.5">
+                    <span className="text-[#7A1F35] font-semibold truncate max-w-[160px]">
                       {cert.org}
                     </span>
                     <span>{cert.date}</span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-display font-semibold text-sm text-white line-clamp-2 leading-snug group-hover:text-cyan-300 transition-colors">
+                  <h3 className="font-display font-semibold text-sm text-[#211C1D] line-clamp-2 leading-snug group-hover:text-[#7A1F35] transition-colors">
                     {cert.name}
                   </h3>
 
                   {/* Credential ID if present */}
                   {cert.credentialId && (
-                    <p className="mt-2 text-[11px] font-mono text-slate-400">
-                      ID: <span className="text-cyan-400">{cert.credentialId}</span>
+                    <p className="mt-2 text-[11px] font-mono text-[#625A58]">
+                      ID: <span className="text-[#7A1F35] font-semibold">{cert.credentialId}</span>
                     </p>
                   )}
 
                   {cert.validTill && (
-                    <p className="mt-1 text-[10px] font-mono text-emerald-400">
+                    <p className="mt-1 text-[10px] font-mono text-emerald-800 font-medium">
                       Valid through {cert.validTill}
                     </p>
                   )}
                 </div>
 
                 {/* Inspect Action */}
-                <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
-                  <span className="text-[10px] text-slate-500">{cert.category}</span>
+                <div className="mt-4 pt-3 border-t border-[#E6DED3] flex items-center justify-between text-xs font-mono">
+                  <span className="text-[10px] text-[#8B8178]">{cert.category}</span>
                   <button
                     onClick={() => setActiveCertModal(cert)}
-                    className="inline-flex items-center gap-1 text-cyan-400 hover:text-cyan-300 hover:underline"
+                    className="inline-flex items-center gap-1 text-[#7A1F35] hover:text-[#962D46] font-semibold hover:underline"
                   >
                     <span>Zoom In</span>
                     <Eye className="w-3 h-3" />
@@ -173,45 +174,43 @@ export default function AchievementsPage() {
         <AnimatePresence>
           {activeCertModal && (
             <div
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-6"
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 sm:p-6"
               onClick={() => setActiveCertModal(null)}
             >
               <button
                 onClick={() => setActiveCertModal(null)}
-                className="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-900 border border-slate-700 text-white flex items-center justify-center hover:border-cyan-400 transition z-10"
+                className="absolute top-6 right-6 w-10 h-10 rounded-full bg-[#FFFCF7] border border-[#D8CFC3] text-[#211C1D] flex items-center justify-center hover:bg-[#F1ECE3] transition z-10 shadow-md"
                 aria-label="Close modal"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5 text-[#7A1F35]" />
               </button>
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="relative max-w-4xl max-h-[90vh] overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 shadow-2xl flex flex-col"
+                className="relative max-w-4xl max-h-[90vh] overflow-hidden rounded-2xl border border-[#D8CFC3] bg-[#FFFCF7] shadow-2xl flex flex-col"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-900 text-xs font-mono">
+                <div className="flex items-center justify-between px-6 py-4 border-b border-[#E6DED3] bg-[#F1ECE3] text-xs font-mono">
                   <div>
-                    <h3 className="font-display font-semibold text-white text-sm">
+                    <h3 className="font-display font-semibold text-[#211C1D] text-sm">
                       {activeCertModal.name}
                     </h3>
-                    <p className="text-amber-400 text-xs mt-0.5">
-                      Issued by {activeCertModal.org} · {activeCertModal.date}
+                    <p className="text-[#7A1F35] font-semibold text-xs mt-0.5">
+                      Issued by {activeCertModal.org} &bull; {activeCertModal.date}
                     </p>
                   </div>
-                  {activeCertModal.credentialId && (
-                    <span className="text-cyan-400">
-                      ID: {activeCertModal.credentialId}
-                    </span>
-                  )}
+                  <span className="px-3 py-1 rounded-full bg-[#FFFCF7] border border-[#D8CFC3] text-[11px] text-[#625A58]">
+                    {activeCertModal.category}
+                  </span>
                 </div>
 
-                <div className="p-4 overflow-auto flex items-center justify-center bg-slate-950">
+                <div className="p-4 sm:p-6 overflow-auto max-h-[calc(90vh-80px)] flex items-center justify-center bg-[#F8F5EF]">
                   <img
                     src={activeCertModal.file}
                     alt={activeCertModal.name}
-                    className="max-h-[75vh] w-auto object-contain rounded-lg shadow-xl"
+                    className="max-h-[70vh] w-auto object-contain rounded-lg shadow-sm"
                   />
                 </div>
               </motion.div>
@@ -220,20 +219,20 @@ export default function AchievementsPage() {
         </AnimatePresence>
 
         {/* ────────── Bottom Navigation ────────── */}
-        <section className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <section className="pt-6 border-t border-[#D8CFC3] flex flex-col sm:flex-row items-center justify-between gap-4">
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-mono text-sm hover:underline"
+            className="inline-flex items-center gap-2 text-[#7A1F35] hover:text-[#962D46] font-mono text-sm font-semibold hover:underline"
           >
-            <span>Next: Contact Navnit for Opportunities</span>
+            <span>Next: Start a Conversation / Hire Navnit</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
-            to="/projects"
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-white font-mono text-xs"
+            to="/"
+            className="inline-flex items-center gap-2 text-[#625A58] hover:text-[#211C1D] font-mono text-xs"
           >
-            <span>Return to Projects</span>
-            <ArrowRight className="w-3 h-3 text-cyan-400" />
+            <span>Return to Home</span>
+            <ArrowRight className="w-3.5 h-3.5 text-[#7A1F35]" />
           </Link>
         </section>
       </div>

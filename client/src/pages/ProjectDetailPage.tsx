@@ -1,7 +1,8 @@
 // ─────────────────────────────────────────────────────────────
 // INDIVIDUAL PROJECT CASE STUDY PAGE (/projects/:slug)
-// In-depth mini case study covering Problem, Solution, Architecture,
+// In-depth case study covering Problem, Solution, Architecture,
 // Features, Engineering Challenges, and Verified Deployments
+// Styled with White + Burgundy design system
 // ─────────────────────────────────────────────────────────────
 
 import { useParams, Link } from "react-router-dom";
@@ -29,15 +30,15 @@ export default function ProjectDetailPage() {
     return (
       <PageWrapper title="Project Not Found">
         <div className="max-w-3xl mx-auto px-4 py-24 text-center space-y-4">
-          <h1 className="font-display text-3xl font-bold text-white">
+          <h1 className="font-display text-3xl font-bold text-[#211C1D]">
             Project Not Found
           </h1>
-          <p className="text-slate-400 text-sm">
+          <p className="text-[#625A58] text-sm">
             The project you requested does not exist or has been moved.
           </p>
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 font-mono text-xs font-semibold"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#7A1F35] text-white font-mono text-xs font-semibold shadow-xs"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Return to Projects</span>
@@ -56,43 +57,43 @@ export default function ProjectDetailPage() {
       title={`${project.name} Case Study — ${PORTFOLIO_CONFIG.name}`}
       description={project.description}
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 space-y-14">
         {/* ────────── Top Breadcrumbs & Back ────────── */}
         <div className="flex items-center justify-between text-xs font-mono">
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition"
+            className="inline-flex items-center gap-2 text-[#625A58] hover:text-[#7A1F35] transition font-semibold"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to All Projects</span>
           </Link>
-          <span className="text-slate-600">Case Study 0{projectIndex + 1}</span>
+          <span className="text-[#8B8178]">Case Study 0{projectIndex + 1}</span>
         </div>
 
         {/* ────────── Hero Header ────────── */}
         <section className="space-y-6">
           <div className="flex flex-wrap items-center gap-2.5">
-            <span className="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono">
+            <span className="px-3.5 py-1 rounded-full bg-[#F1ECE3] border border-[#D8CFC3] text-[#7A1F35] text-xs font-mono font-semibold">
               {project.category}
             </span>
-            <span className="px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-400 text-xs font-mono">
+            <span className="px-3.5 py-1 rounded-full bg-[#FFFCF7] border border-[#D8CFC3] text-[#625A58] text-xs font-mono">
               {project.period}
             </span>
-            <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-800 text-xs font-mono flex items-center gap-1.5 font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
               Live in Production
             </span>
           </div>
 
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#211C1D] leading-tight">
             {project.name}
           </h1>
 
-          <p className="text-cyan-300 font-mono text-base sm:text-lg">
+          <p className="text-[#7A1F35] font-mono text-base sm:text-lg font-medium">
             {project.tagline}
           </p>
 
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-3xl">
+          <p className="text-[#625A58] text-base sm:text-lg leading-relaxed max-w-3xl">
             {project.description}
           </p>
 
@@ -103,7 +104,7 @@ export default function ProjectDetailPage() {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-xs font-mono transition shadow-lg shadow-cyan-950/40"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#7A1F35] hover:bg-[#962D46] text-white font-semibold text-xs font-mono transition shadow-md shadow-[#7A1F35]/20"
               >
                 <span>Launch Live Application</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -115,9 +116,9 @@ export default function ProjectDetailPage() {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-slate-700 bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-mono transition"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-[#D8CFC3] bg-[#FFFCF7] hover:bg-[#F1ECE3] text-[#211C1D] text-xs font-mono transition shadow-xs"
               >
-                <GithubIcon className="w-3.5 h-3.5 text-cyan-400" />
+                <GithubIcon className="w-3.5 h-3.5 text-[#7A1F35]" />
                 <span>GitHub Repository</span>
               </a>
             )}
@@ -125,64 +126,64 @@ export default function ProjectDetailPage() {
         </section>
 
         {/* ────────── Preview Media / Banner ────────── */}
-        <section className="rounded-3xl border border-slate-800 bg-slate-950 overflow-hidden shadow-2xl">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-slate-800 bg-slate-900/80 text-xs font-mono text-slate-400">
+        <section className="rounded-3xl border border-[#D8CFC3] bg-[#FFFCF7] overflow-hidden shadow-warm-card">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-[#E6DED3] bg-[#F1ECE3] text-xs font-mono text-[#625A58]">
             <div className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
             </div>
-            <span className="text-[11px] text-slate-400">
+            <span className="text-[11px] text-[#211C1D] font-medium">
               {project.liveUrl.replace("https://", "")}
             </span>
-            <span className="text-[10px] text-cyan-400">Vercel Deployment</span>
+            <span className="text-[10px] text-[#7A1F35] font-semibold">Vercel Deployment</span>
           </div>
 
-          <div className="p-6 sm:p-10 flex items-center justify-center bg-slate-950">
+          <div className="p-6 sm:p-10 flex items-center justify-center bg-[#F8F5EF]">
             {project.image ? (
               <img
                 src={project.image}
                 alt={project.name}
-                className="w-full max-h-[480px] object-contain rounded-xl"
+                className="w-full max-h-[480px] object-contain rounded-xl shadow-sm"
               />
             ) : (
-              <div className="w-full max-w-2xl p-8 rounded-2xl bg-slate-900/80 border border-slate-800 text-left space-y-6">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="w-full max-w-2xl p-8 rounded-2xl bg-[#FFFCF7] border border-[#D8CFC3] text-left space-y-6 shadow-sm">
+                <div className="flex items-center justify-between border-b border-[#E6DED3] pb-4">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
-                      <Cpu className="w-4 h-4" />
+                    <div className="w-9 h-9 rounded-xl bg-[#7A1F35]/10 border border-[#7A1F35]/20 flex items-center justify-center text-[#7A1F35]">
+                      <Cpu className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="font-display font-semibold text-white text-sm">
+                      <h3 className="font-display font-semibold text-[#211C1D] text-base">
                         AI Resume Evaluation Engine
                       </h3>
-                      <p className="text-[11px] font-mono text-slate-400">
+                      <p className="text-[11px] font-mono text-[#625A58]">
                         Real-Time Semantic ATS Parser
                       </p>
                     </div>
                   </div>
-                  <span className="px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-400 text-xs font-mono border border-emerald-500/30">
+                  <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-800 text-xs font-mono border border-emerald-500/25 font-semibold">
                     ATS Match: 88%
                   </span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">
-                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <span className="text-slate-500 block text-[10px]">Identified Keywords</span>
-                    <span className="text-cyan-400 font-bold text-base">24 Tracked</span>
+                  <div className="p-3 rounded-xl bg-[#F8F5EF] border border-[#D8CFC3]">
+                    <span className="text-[#8B8178] block text-[10px]">Identified Keywords</span>
+                    <span className="text-[#7A1F35] font-bold text-base">24 Tracked</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <span className="text-slate-500 block text-[10px]">Missing Competencies</span>
-                    <span className="text-amber-400 font-bold text-base">4 Gaps Detected</span>
+                  <div className="p-3 rounded-xl bg-[#F8F5EF] border border-[#D8CFC3]">
+                    <span className="text-[#8B8178] block text-[10px]">Missing Competencies</span>
+                    <span className="text-amber-800 font-bold text-base">4 Gaps Detected</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <span className="text-slate-500 block text-[10px]">Processing Speed</span>
-                    <span className="text-emerald-400 font-bold text-base">&lt; 1.2s</span>
+                  <div className="p-3 rounded-xl bg-[#F8F5EF] border border-[#D8CFC3]">
+                    <span className="text-[#8B8178] block text-[10px]">Processing Speed</span>
+                    <span className="text-emerald-800 font-bold text-base">&lt; 1.2s</span>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono text-slate-300">
-                  <span className="text-cyan-400 font-semibold">Recommended Rewrite:</span>{" "}
+                <div className="p-3.5 rounded-xl bg-[#F8F5EF] border border-[#D8CFC3] text-xs font-mono text-[#211C1D]">
+                  <span className="text-[#7A1F35] font-semibold">Recommended Rewrite:</span>{" "}
                   &ldquo;Orchestrated high-throughput REST controllers integrating Kafka event queues and H2 in-memory databases, reducing async latency by 28%.&rdquo;
                 </div>
               </div>
@@ -193,56 +194,56 @@ export default function ProjectDetailPage() {
         {/* ────────── Problem vs. Solution Breakdown ────────── */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Problem */}
-          <div className="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-4">
-            <div className="flex items-center gap-2 text-amber-400 font-mono text-xs uppercase tracking-wider font-semibold">
+          <div className="p-8 rounded-3xl bg-[#FFFCF7] border border-[#D8CFC3] space-y-4 shadow-warm-card">
+            <div className="flex items-center gap-2 text-amber-800 font-mono text-xs uppercase tracking-wider font-semibold">
               <AlertTriangle className="w-4 h-4" />
               <span>01 / The Challenge</span>
             </div>
-            <h2 className="font-display text-2xl font-bold text-white">
+            <h2 className="font-display text-2xl font-bold text-[#211C1D]">
               The Problem Statement
             </h2>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-[#625A58] text-sm leading-relaxed">
               {project.problem}
             </p>
           </div>
 
           {/* Solution */}
-          <div className="p-8 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-4">
-            <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-wider font-semibold">
+          <div className="p-8 rounded-3xl bg-[#FFFCF7] border border-[#D8CFC3] space-y-4 shadow-warm-card">
+            <div className="flex items-center gap-2 text-[#7A1F35] font-mono text-xs uppercase tracking-wider font-semibold">
               <CheckCircle2 className="w-4 h-4" />
               <span>02 / The Engineered Solution</span>
             </div>
-            <h2 className="font-display text-2xl font-bold text-white">
-              System Architecture & Response
+            <h2 className="font-display text-2xl font-bold text-[#211C1D]">
+              System Architecture &amp; Response
             </h2>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-[#625A58] text-sm leading-relaxed">
               {project.solution}
             </p>
           </div>
         </section>
 
         {/* ────────── Architecture & Technical Implementation ────────── */}
-        <section className="p-8 sm:p-10 rounded-3xl bg-slate-900/60 border border-slate-800 space-y-6">
+        <section className="p-8 sm:p-10 rounded-3xl bg-[#FFFCF7] border border-[#D8CFC3] space-y-6 shadow-warm-card">
           <div className="flex items-center gap-2">
-            <Layers className="w-5 h-5 text-cyan-400" />
-            <h2 className="font-display text-2xl font-bold text-white">
-              Technical Architecture & Stack
+            <Layers className="w-5 h-5 text-[#7A1F35]" />
+            <h2 className="font-display text-2xl font-bold text-[#211C1D]">
+              Technical Architecture &amp; Stack
             </h2>
           </div>
 
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-[#625A58] text-sm sm:text-base leading-relaxed">
             {project.architecture}
           </p>
 
           <div className="space-y-3 pt-2">
-            <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 font-semibold">
+            <h4 className="text-xs font-mono uppercase tracking-widest text-[#211C1D] font-semibold">
               Technology Stack Components:
             </h4>
             <div className="flex flex-wrap gap-2">
               {project.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3.5 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono text-cyan-300"
+                  className="px-3.5 py-1.5 rounded-xl bg-[#F8F5EF] border border-[#D8CFC3] text-xs font-mono text-[#211C1D]"
                 >
                   {tech}
                 </span>
@@ -253,19 +254,19 @@ export default function ProjectDetailPage() {
 
         {/* ────────── Key Features List ────────── */}
         <section className="space-y-6">
-          <h2 className="font-display text-2xl font-bold text-white">
-            Core Features & Functionality
+          <h2 className="font-display text-2xl font-bold text-[#211C1D]">
+            Core Features &amp; Functionality
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {project.features.map((feat, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-slate-900/50 border border-slate-800 flex items-start gap-3"
+                className="p-5 rounded-2xl bg-[#FFFCF7] border border-[#D8CFC3] flex items-start gap-3 shadow-xs"
               >
-                <div className="w-6 h-6 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0 mt-0.5">
+                <div className="w-6 h-6 rounded-lg bg-[#7A1F35]/10 border border-[#7A1F35]/20 flex items-center justify-center text-[#7A1F35] shrink-0 mt-0.5">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                 </div>
-                <span className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <span className="text-xs sm:text-sm text-[#625A58] leading-relaxed">
                   {feat}
                 </span>
               </div>
@@ -274,10 +275,10 @@ export default function ProjectDetailPage() {
         </section>
 
         {/* ────────── Engineering Challenges & Resolutions ────────── */}
-        <section className="p-8 rounded-3xl bg-slate-900/40 border border-slate-800 space-y-6">
+        <section className="p-8 rounded-3xl bg-[#FFFCF7] border border-[#D8CFC3] space-y-6 shadow-warm-card">
           <div className="flex items-center gap-2">
-            <Terminal className="w-5 h-5 text-amber-400" />
-            <h2 className="font-display text-xl font-bold text-white">
+            <Terminal className="w-5 h-5 text-amber-800" />
+            <h2 className="font-display text-xl font-bold text-[#211C1D]">
               Technical Challenges Overcome
             </h2>
           </div>
@@ -286,9 +287,9 @@ export default function ProjectDetailPage() {
             {project.challenges.map((chal, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-slate-950/40 border border-slate-800/80 text-xs sm:text-sm text-slate-300 flex items-start gap-3"
+                className="p-4 rounded-xl bg-[#F8F5EF] border border-[#D8CFC3] text-xs sm:text-sm text-[#625A58] flex items-start gap-3"
               >
-                <span className="text-cyan-400 font-mono font-semibold">
+                <span className="text-[#7A1F35] font-mono font-semibold">
                   0{idx + 1}
                 </span>
                 <span>{chal}</span>
@@ -298,13 +299,13 @@ export default function ProjectDetailPage() {
         </section>
 
         {/* ────────── Sole Developer Ownership Note ────────── */}
-        <section className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <section className="p-6 rounded-2xl bg-[#F1ECE3] border border-[#D8CFC3] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
-            <h4 className="font-display font-semibold text-white text-sm">
-              Role & Contribution
+            <h4 className="font-display font-semibold text-[#211C1D] text-sm">
+              Role &amp; Contribution
             </h4>
-            <p className="text-xs text-slate-400">
-              Sole developer — owned end-to-end delivery: React frontend, backend API integration, testing, and production deployment on Vercel.
+            <p className="text-xs text-[#625A58]">
+              Sole developer &mdash; owned end-to-end delivery: React frontend, backend API integration, testing, and production deployment on Vercel.
             </p>
           </div>
           {project.liveUrl && (
@@ -312,7 +313,7 @@ export default function ProjectDetailPage() {
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-mono font-semibold transition shrink-0"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#7A1F35] hover:bg-[#962D46] text-white text-xs font-mono font-semibold transition shrink-0 shadow-xs"
             >
               <span>Verify Live Demo</span>
               <ExternalLink className="w-3 h-3" />
@@ -321,11 +322,11 @@ export default function ProjectDetailPage() {
         </section>
 
         {/* ────────── Project Navigation (Prev / Next) ────────── */}
-        <section className="pt-8 border-t border-slate-800 flex items-center justify-between gap-4">
+        <section className="pt-6 border-t border-[#D8CFC3] flex items-center justify-between gap-4">
           {prevProject ? (
             <Link
               to={`/projects/${prevProject.slug}`}
-              className="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-cyan-300 transition"
+              className="inline-flex items-center gap-2 text-xs font-mono text-[#625A58] hover:text-[#7A1F35] transition"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Previous: {prevProject.name}</span>
@@ -337,7 +338,7 @@ export default function ProjectDetailPage() {
           {nextProject ? (
             <Link
               to={`/projects/${nextProject.slug}`}
-              className="inline-flex items-center gap-2 text-xs font-mono text-cyan-400 hover:text-cyan-300 transition"
+              className="inline-flex items-center gap-2 text-xs font-mono text-[#7A1F35] hover:text-[#962D46] font-semibold transition"
             >
               <span>Next: {nextProject.name}</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -345,7 +346,7 @@ export default function ProjectDetailPage() {
           ) : (
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 text-xs font-mono text-cyan-400 hover:text-cyan-300 transition"
+              className="inline-flex items-center gap-2 text-xs font-mono text-[#7A1F35] hover:text-[#962D46] font-semibold transition"
             >
               <span>View All Projects</span>
               <ArrowRight className="w-3.5 h-3.5" />
